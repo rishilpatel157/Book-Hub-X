@@ -1,0 +1,66 @@
+<!-- book-upload.component.html -->
+<h1 class="text-center font-bold text-2xl text-blue-700">UPLOAD BOOK</h1>
+<div class="md:container md:mx-auto my-10 md:px-96">
+    <form (submit)="onSubmit()" #bookUploadForm="ngForm">
+  
+      <!-- Book Title -->
+      <div class="relative z-0 w-full mb-6 group">
+        <input [(ngModel)]="books.title" type="text" name="title" id="title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="title" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Book Title</label>
+        <!-- Add validation messages here -->
+      </div>
+  
+      <!-- Book Description -->
+      <div class="relative z-0 w-full mb-6 group">
+        <textarea [(ngModel)]="books.description" name="description" id="description" rows="0" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required></textarea>
+        <label for="description" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Book Description</label>
+        <!-- Add validation messages here -->
+      </div>
+  
+      <!-- ISBN -->
+      <!-- <div class="relative z-0 w-full mb-6 group">
+        <input [(ngModel)]="books.ISBN" type="text" name="ISBN" id="ISBN" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <label for="ISBN" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ISBN</label>
+      </div> -->
+        <!-- Add validation messages here -->
+
+      
+  
+      <!-- Image Link -->
+      
+      <!-- Genres -->
+      <div class="relative z-0 w-full mb-6 group">
+          <!-- Add your logic for selecting genres -->
+          <!-- Example: Multi-select dropdown or checkboxes -->
+          <input   [(ngModel)]="books.genres" type="text" name="genre" id="genre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required />
+          <label for="genre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Genres (comma-separated)</label>
+          
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+          <input [(ngModel)]="books.imageLink" type="text" name="imageLink" id="imageLink" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="imageLink" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image Link</label>
+          <!-- Add validation messages here -->
+        </div>
+  
+       <h1>OR</h1>
+      
+      <div class="relative z-0 w-full mt-5 mb-6 group">
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image file</label>
+        <input (change)="onImageSelected($event)"  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer  dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+    </div>
+
+
+      <div class="relative z-0 w-full mb-6 group">
+        <!-- Add your logic for uploading book PDF -->
+        <!-- Example: File input for PDF upload -->
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload PDF file</label>
+        <input  (change)="onBookSelected($event)" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer  dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+ 
+      </div>
+  
+      
+      <!-- Submit Button -->
+      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </form>
+  </div>
+  
