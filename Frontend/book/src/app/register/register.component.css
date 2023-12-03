@@ -1,0 +1,31 @@
+.checked-border {
+    border-color: red; /* Change this to the desired color */
+  }
+  #floating_first_name {
+    background-color: #fff; /* Set your default background color here */
+  }
+
+  /* Background color when focused */
+  #floating_first_name:focus {
+    background-color: #e6f7ff; /* Set your focused background color here */
+  }
+
+  /* Background color when input has content (using focus-within) */
+  #floating_first_name:focus-within {
+    background-color: #ccf2ff; /* Set your background color when input has content here */
+  }
+
+  /* Dark mode background color */
+  #floating_first_name.dark {
+    background-color: #333; /* Set your dark mode background color here */
+  }
+
+  /* Dark mode background color when focused */
+  #floating_first_name.dark:focus {
+    background-color: #666; /* Set your focused dark mode background color here */
+  }
+
+  /* Dark mode background color when input has content (using focus-within) */
+  #floating_first_name.dark:focus-within {
+    background-color: #555; /* Set your dark mode background color when input has content here */
+  }

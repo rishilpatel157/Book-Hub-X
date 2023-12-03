@@ -5,21 +5,21 @@
   
       <!-- Book Title -->
       <div class="relative z-0 w-full mb-6 group">
-        <input [(ngModel)]="books.title" type="text" name="title" id="title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <input [(ngModel)]="books.title" type="text" name="title" id="title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label for="title" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Book Title</label>
         <!-- Add validation messages here -->
       </div>
   
       <!-- Book Description -->
       <div class="relative z-0 w-full mb-6 group">
-        <textarea [(ngModel)]="books.description" name="description" id="description" rows="0" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required></textarea>
+        <textarea [(ngModel)]="books.description" name="description" id="description" rows="1" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required></textarea>
         <label for="description" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Book Description</label>
         <!-- Add validation messages here -->
       </div>
   
       <!-- ISBN -->
       <!-- <div class="relative z-0 w-full mb-6 group">
-        <input [(ngModel)]="books.ISBN" type="text" name="ISBN" id="ISBN" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+        <input [(ngModel)]="books.ISBN" type="text" name="ISBN" id="ISBN" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label for="ISBN" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ISBN</label>
       </div> -->
         <!-- Add validation messages here -->
@@ -32,12 +32,12 @@
       <div class="relative z-0 w-full mb-6 group">
           <!-- Add your logic for selecting genres -->
           <!-- Example: Multi-select dropdown or checkboxes -->
-          <input   [(ngModel)]="books.genres" type="text" name="genre" id="genre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required />
+          <input   [(ngModel)]="books.genres" type="text" name="genre" id="genre" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required />
           <label for="genre" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Genres (comma-separated)</label>
           
         </div>
         <div class="relative z-0 w-full mb-6 group">
-          <input [(ngModel)]="books.imageLink" type="text" name="imageLink" id="imageLink" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <input [(ngModel)]="books.imageLink" type="text" name="imageLink" id="imageLink" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
           <label for="imageLink" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image Link</label>
           <!-- Add validation messages here -->
         </div>

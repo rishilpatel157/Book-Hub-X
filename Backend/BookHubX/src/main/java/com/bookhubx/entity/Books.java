@@ -8,6 +8,7 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,12 +31,14 @@ public class Books {
 
 	private String title;
 	
+	@Column(length = 1000)
 	private String description;
 	
 	private LocalDateTime timeStamp;
 	
 	private String imageLink;
-
+	
+	@Column(length = 1000)
     private String genres;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -46,8 +49,12 @@ public class Books {
 	
 	private boolean isPublished;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Users author;
+	
+	@OneToMany
+	private List<Community> communities;
+	
 	
 
 }

@@ -1,143 +1,301 @@
-<div  class="md:container md:mx-auto my-10 md:px-96 ">
-    <form (submit)="onSubmit()">
-
-<!-- 
+<div class="md:container md:mx-auto my-10 md:px-96 py-2 px-10">
+  <form class="  p-2" (submit)="onSubmit()">
+    <!-- 
 
          -->
 
-         <h3 class="mb-5 text-lg font-medium text-gray-900 text-center dark:text-white">Please Select Below Option</h3>
-         <ul class="grid w-full gap-6 md:grid-cols-2">
-           <li>
-             <input
-               type="radio"
-               id="hosting-small"
-               name="reader"
-               value="Reader"
-               class="hidden peer"
-               [(ngModel)]="userProfile.authority[0].role"
-               (ngModelChange)="onRoleChange()"
-               required
-             />
-             <label
-               for="hosting-small"
-               class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
-             >
-               <div class="block">
-                 <div class="w-full text-lg font-semibold">Reader</div>
-               </div>
-               <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-               </svg>
-             </label>
-           </li>
-           <li>
-             <input
-               type="radio"
-               id="hosting-big"
-               name="reader"
-               value="Author"
-               class="hidden peer"
-               [(ngModel)]="userProfile.authority[0].role"
-               (ngModelChange)="onRoleChange()"
-             />
-             <label
-               for="hosting-big"
-               class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
-             >
-               <div class="block">
-                 <div class="w-full text-lg font-semibold">Author</div>
-               </div>
-               <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-               </svg>
-             </label>
-           </li>
-         </ul>
+    <h3
+      class="mb-5 text-lg font-medium text-gray-900 text-center dark:text-white"
+    >
+      Please Select Below Option
+    </h3>
 
 
-<!-- 
+
+
+    <ul class="grid w-full gap-6 md:grid-cols-2">
+      <li class=" ">
+        <input
+          type="radio"
+          id="hosting-small"
+          name="reader"
+          value="Reader"
+          class="hidden peer"
+          [(ngModel)]="userProfile.authority[0].role"
+          (ngModelChange)="onRoleChange()"
+          required
+        />
+        <label
+        [ngClass]="{'checked-border': userProfile.authority[0].role === 'Reader'}"
+
+          class="inline-flex items-center justify-between w-full h-6 p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+          for="hosting-small"
+        >
+          <div class="block">
+            <div class="w-full text-lg font-semibold">Reader</div>
+          </div>
+          <svg
+            class="w-5 h-5 ms-3 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </label>
+      </li>
+      <li>
+        <input
+          type="radio"
+          id="hosting-big"
+          name="reader"
+          value="Author"
+          class="hidden peer"
+          [(ngModel)]="userProfile.authority[0].role"
+          (ngModelChange)="onRoleChange()"
+        />
+        <label
+              [ngClass]="{'checked-border': userProfile.authority[0].role === 'Reader'}"
+
+          for="hosting-big"
+          class="inline-flex items-center justify-between w-full h-6 p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <div class="block">
+            <div class="w-full text-lg font-semibold">Author</div>
+          </div>
+          <svg
+            class="w-5 h-5 ms-3 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </label>
+      </li>
+    </ul>
+    
+
+    <!-- 
 
           -->
-      <div class="grid md:grid-cols-2 md:gap-6 mt-5">
-        <div class="relative z-0 w-full mb-6 group">
-            <input minlength="2" [(ngModel)]="userProfile.firstName" type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-            <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
-            <div class="text-red-500" *ngIf="formSubmitted && !userProfile.firstName ">
-             First Name is required.
-            </div>
-            <div class="text-red-500" *ngIf="userProfile.firstName.length <3 && userProfile.firstName.length >=1">
-              Should be at least 3 characters long
-            </div>
-          </div>
-        <div class="relative z-0 w-full mb-6 group">
-            <input [(ngModel)]="userProfile.lastName" type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-            <label  for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-            <div class="text-red-500" *ngIf="formSubmitted && !userProfile.lastName ">
-             Last Name is required.
-            </div>
-            <div class="text-red-500" *ngIf="userProfile.lastName.length <3 && userProfile.lastName.length >=1">
-              Should be at least 3 characters long
-            </div>
-  
-          </div>
+    <div class="grid md:grid-cols-2 md:gap-6 mt-5">
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+          minlength="2"
+          [(ngModel)]="userProfile.firstName"
+          type="text"
+          name="floating_first_name"
+          id="floating_first_name"
+          class="block py-2.5 border-b-2 border-t-0 border-l-0 border-r-0 px-0 w-full text-sm text-gray-900 bg-transparent   border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=""
+          required
+        />
+        <label
+          for="floating_first_name"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >First name</label
+        >
+        <div
+          class="text-red-500"
+          *ngIf="formSubmitted && !userProfile.firstName"
+        >
+          First Name is required.
+        </div>
+        <div
+          class="text-red-500"
+          *ngIf="
+            userProfile.firstName.length < 3 &&
+            userProfile.firstName.length >= 1
+          "
+        >
+          Should be at least 3 characters long
+        </div>
       </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input
+          [(ngModel)]="userProfile.lastName"
+          type="text"
+          name="floating_last_name"
+          id="floating_last_name"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+          required
+        />
+        <label
+          for="floating_last_name"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Last name</label
+        >
+        <div
+          class="text-red-500"
+          *ngIf="formSubmitted && !userProfile.lastName"
+        >
+          Last Name is required.
+        </div>
+        <div
+          class="text-red-500"
+          *ngIf="
+            userProfile.lastName.length < 3 && userProfile.lastName.length >= 1
+          "
+        >
+          Should be at least 3 characters long
+        </div>
+      </div>
+    </div>
     <div class="relative z-0 w-full mb-6 group">
-        <input [(ngModel)]="userProfile.email" type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required />
-        <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
-        <div class="text-red-500" *ngIf="!getEmailValidity(userProfile.email)  && userProfile.email.length >=1">
-           Invalid  Email example - {{'user@example.com'}}
-        </div>
-        <div class="text-red-500" *ngIf="formSubmitted && !userProfile.email ">
-          Email is required.
-        </div>
+      <input
+        [(ngModel)]="userProfile.email"
+        type="email"
+        name="floating_email"
+        id="floating_email"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=""
+        required
+      />
+      <label
+        for="floating_email"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Email address</label
+      >
+      <div
+        class="text-red-500"
+        *ngIf="
+          !getEmailValidity(userProfile.email) && userProfile.email.length >= 1
+        "
+      >
+        Invalid Email example - {{ "user@example.com" }}
       </div>
+      <div class="text-red-500" *ngIf="formSubmitted && !userProfile.email">
+        Email is required.
+      </div>
+    </div>
     <div class="relative z-0 w-full mb-6 group">
-        <input [(ngModel)]="userProfile.password" type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
-        <div class="text-red-500" *ngIf="userProfile.password.length <=8 && userProfile.password.length >=1">
-             Password Minimum length is 8
-  
-        </div>
-        <div class="text-red-500" *ngIf="userProfile.password.length >=1 && getPasswordStrength(userProfile.password)<3" >
-               Password is weak
-        </div>
-        <div class="text-orange-500" *ngIf="userProfile.password.length >=1 && getPasswordStrength(userProfile.password)<=4 && getPasswordStrength(userProfile.password)>=3" >
-          Password is Moderate
-   </div>
-   <div class="text-green-500" *ngIf="userProfile.password.length >=1 && getPasswordStrength(userProfile.password)>4" >
-    Password is Strong
-  </div>
-  <div class="text-red-500" *ngIf="formSubmitted && !userProfile.password ">
-    Password is required.
-  </div>
+      <input
+        [(ngModel)]="userProfile.password"
+        type="password"
+        name="floating_password"
+        id="floating_password"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="floating_password"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Password</label
+      >
+      <div
+        class="text-red-500"
+        *ngIf="
+          userProfile.password.length <= 8 && userProfile.password.length >= 1
+        "
+      >
+        Password Minimum length is 8
       </div>
+      <div
+        class="text-red-500"
+        *ngIf="
+          userProfile.password.length >= 1 &&
+          getPasswordStrength(userProfile.password) < 3
+        "
+      >
+        Password is weak
+      </div>
+      <div
+        class="text-orange-500"
+        *ngIf="
+          userProfile.password.length >= 1 &&
+          getPasswordStrength(userProfile.password) <= 4 &&
+          getPasswordStrength(userProfile.password) >= 3
+        "
+      >
+        Password is Moderate
+      </div>
+      <div
+        class="text-green-500"
+        *ngIf="
+          userProfile.password.length >= 1 &&
+          getPasswordStrength(userProfile.password) > 4
+        "
+      >
+        Password is Strong
+      </div>
+      <div class="text-red-500" *ngIf="formSubmitted && !userProfile.password">
+        Password is required.
+      </div>
+    </div>
     <div class="relative z-0 w-full mb-6 group">
-        <input [(ngModel)]="confirmPassword" type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
-        <div class="text-red-500" *ngIf="confirmPassword.length >=1 && confirmPassword != userProfile.password ">
-          Password is not matching
-        </div>
+      <input
+        [(ngModel)]="confirmPassword"
+        type="password"
+        name="repeat_password"
+        id="floating_repeat_password"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent  border-b-2 border-t-0 border-l-0 border-r-0 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="floating_repeat_password"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Confirm password</label
+      >
+      <div
+        class="text-red-500"
+        *ngIf="
+          confirmPassword.length >= 1 && confirmPassword != userProfile.password
+        "
+      >
+        Password is not matching
       </div>
+    </div>
 
+    <label
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      for="file_input"
+      >Upload file</label
+    >
+    <input
+      (change)="onFileSelected($event)"
+      class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+      aria-describedby="file_input_help"
+      id="file_input"
+      type="file"
+    />
+    <p
+      class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+      id="file_input_help"
+    >
+      SVG, PNG, JPG or GIF (MAX. 800x400px).
+    </p>
 
-    
-    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-    <input (change)="onFileSelected($event)" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
-    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
-
-   
-      
-  
-        
-        
-        
-    
-    
-    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    <button
+      type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Submit
+    </button>
   </form>
-  </div>
-  
+</div>
 
-  <!-- Add this to your HTML template -->
+<!-- Add this to your HTML template -->
 <!-- Add this img tag to display the profile picture -->
-<img *ngIf="profilePictureBase64" [src]="profilePictureBase64" alt="Profile Picture">
+<img
+  *ngIf="profilePictureBase64"
+  [src]="profilePictureBase64"
+  alt="Profile Picture"
+/>

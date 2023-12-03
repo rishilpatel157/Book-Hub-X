@@ -48,6 +48,9 @@ public class Users {
 
 	private boolean isActive;
 	
+	@OneToMany
+	private List<Community> communities;
+	
 
 
 }

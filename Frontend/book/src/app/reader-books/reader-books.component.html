@@ -1,0 +1,76 @@
+<div class="container mx-auto flex flex-row justify-evenly items-center mt-5">
+    <!-- <div>
+      <select (change)="sortByCategory()"  class="bg-gray-50 w-36 container mx-auto mb-5 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option value="" selected>Sort By Category</option>
+        <option   *ngFor="let category of categoryList" [value]="category">{{category}}  </option>
+      
+      </select>   
+    </div>
+    <div>
+<select (change)="sortByPrice()" [(ngModel)]="selectedByPrice"  class="bg-gray-50 w-36 container mx-auto mb-5 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option value="" selected>Sort By Price</option>
+  <option value="low"> Low To High </option>
+  <option value="high"> High To Low </option>
+</select>
+</div>
+    
+<div>
+<select (change)="sortByName()" [(ngModel)]="selectedByName"  class="bg-gray-50 w-36 container mx-auto mb-5 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <option value="" selected>Sort By Name</option>
+    <option value="asc"> Ascending </option>
+    <option value="desc"> Descending </option>
+  </select>
+</div> -->
+</div>
+<div class="container mx-auto flex flex-wrap gap-5 justify-center items-center">
+    <ng-container *ngFor="let book of bookList" style="width: 150px;">
+      <ng-container>
+        <div style="height: 350px;" class="w-fit max-w-sm  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a class="h-4/6" href="#">
+            <img class="w-full h-4/6 rounded-t-lg" [src]="'data:image/png;base64,' + book.bookImage.image" alt="product image" />
+          </a>
+          <div  class=" h-2/6 flex flex-col justify-evenly" >
+            <div class="h-2/5 p-3"  >
+                <div style="margin-top: -10px;width: 150px;" class="h-2/5  pb-3 overflow-wrap break-word tracking-tight text-gray-900 dark:text-white">{{ book.title }}</div>
+                <div class=" font-bold  text-gray-900 dark:text-white"> <span class="text-blue-500">Author : </span>	  {{ book.author.firstName }}</div>
+            </div>
+            <div class="flex h-1/5 p-3 items-center justify-between">
+              <a  (click)="viewBook(book.id)"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
+                View Book
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  
+  <div class="container mx-auto flex justify-center items-center my-4">
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <!-- Previous Page -->
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="onPageChange(currentPage -1)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+      
+          <!-- Page Numbers -->
+          <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
+            <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+          </li>
+      
+          <!-- Next Page -->
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="onPageChange(currentPage + 1)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+    
+    </div>

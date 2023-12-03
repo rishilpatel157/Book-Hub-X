@@ -65,6 +65,7 @@ public class UsersServiceImpl implements UsersService {
 		String email= (String)	SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	Users user = usersRepository.findByEmail(email).orElseThrow(()-> new UserNotFoundException("Invalid Email") );
 		  byte[] profilePictureData = user.getProfilePicture().getProfilePicture();
+		  
 
 	      
 	        return profilePictureData;

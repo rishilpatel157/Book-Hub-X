@@ -1,25 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { BookService } from 'src/app/service/book.service';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
 })
 export class BooksComponent {
+  books!: any[];
+  profilePictureData: ArrayBuffer | null = null;
+  profilePictureBase64: string | null = null;
 
-  books! :any[]
+  constructor(private bookService: BookService) {
+    this.bookService.getAuthorBooks().subscribe((res) => {
+      this.books = res;
+    });
+  }
 
-constructor(private bookService:BookService){
+  publishBook(id: number) {
 
-this.bookService.getAuthorBooks().subscribe(res => {
+    this.bookService.publishBook(id).subscribe(res =>{
+      alert(res)
+    })
 
-  this.books = res;
-  console.log(this.books)
-})
+    this.bookService.getAuthorBooks().subscribe((res) => {
+      this.books = res;
+      console.log(res)
+    });
+    window.location.reload()
 
-}
+
+  }
+  unPublishBook(id: number) {
+    this.bookService.unpublishBook(id).subscribe(res =>{
+      alert(res)
+    })
+    this.bookService.getAuthorBooks().subscribe((res) => {
+      this.books = res;
+    });
+    window.location.reload()
+
+  }
+
+  deleteBook(id: number) {
+
+    this.bookService.deleteBook(id).subscribe(res =>{
+      alert(res)
+    })
+    this.bookService.getAuthorBooks().subscribe((res) => {
+      this.books = res;
+    });
+    window.location.reload()
 
 
-
+  }
 }

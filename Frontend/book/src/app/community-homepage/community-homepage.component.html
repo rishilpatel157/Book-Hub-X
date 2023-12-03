@@ -1,0 +1,92 @@
+<div class="container mx-auto flex justify-center my-3">
+  <button mat-raised-button (click)="openDialog()">Create Community</button>
+</div>
+<div class="container mx-auto flex justify-center">
+  <div
+    class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+  >
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
+        Communities
+      </h2>
+    </div>
+    <div class="flow-root">
+      <ul
+        *ngFor="let data of community; let i = index"
+        role="list"
+        class="divide-y divide-gray-200 dark:divide-gray-700"
+      >
+        <li class="py-3 sm:py-4">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img
+                [routerLink]="['/discussion', data.id]"
+                class="w-12 h-12 rounded-full cursor-pointer"
+                [src]="'data:image/png;base64,' + data.book.bookImage.image"
+                alt="Neil image"
+              />
+            </div>
+            <div class="flex-1 min-w-0 ms-4">
+              <p
+                [routerLink]="['/discussion', data.id]"
+                class="text-sm cursor-pointer font-medium text-gray-900 truncate dark:text-white"
+              >
+                {{ data.title }}
+              </p>
+              <div
+                [routerLink]="['/discussion', data.id]"
+                class="text-sm cursor-pointer text-gray-500 truncate dark:text-gray-400"
+              >
+                <span> Book :</span> {{ data.book.title }}
+              </div>
+            </div>
+            <div
+              class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+            >
+             <div *ngIf="data.member" [routerLink]="['/discussion',data.id]" class="inline-flex cursor-pointer items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3">Message</div>
+            <div *ngIf="!data.member" (click)="joinCommunity(data.id)" class="inline-flex cursor-pointer items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Join</div>
+         
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto flex justify-center items-center my-4">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <!-- Previous Page -->
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a
+          class="page-link"
+          (click)="onPageChange(currentPage - 1)"
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+
+      <!-- Page Numbers -->
+      <li
+        *ngFor="let page of pages"
+        class="page-item"
+        [class.active]="page === currentPage"
+      >
+        <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+
+      <!-- Next Page -->
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a
+          class="page-link"
+          (click)="onPageChange(currentPage + 1)"
+          aria-label="Next"
+        >
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
