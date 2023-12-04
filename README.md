@@ -37,19 +37,23 @@ BOOKHUBX is a dynamic platform developed to provide a seamless experience for bo
 ### Database:
 - MySQL
 
-### Platform Highlights:
+### Key Features
 
-1. **Effortless Book Discovery:** Explore a diverse range of genres and discover your next favorite book.
+- **Effortless Book Discovery**: Explore a dynamic bookstore with a diverse range of genres for exciting book discovery.
 
-2. **Secure Access:** Implemented secure access using Spring Security and JWT tokens to ensure a safe environment.
+- **Author Publishing**: Empower authors to effortlessly publish their work, fostering a vibrant community.
 
-3. **Dynamic Bookstore:** Created a dynamic bookstore with a diverse range of genres for exciting book discovery.
+- **Community Engagement**: Implement a community creation feature for readers and authors to enhance engagement.
 
-4. **Author Empowerment:** Enabled authors to effortlessly publish their work, fostering a vibrant community.
+- **Secure Access**: Ensure a safe environment with secure access using Spring Security and JWT tokens.
 
-5. **Community Engagement:** Implemented a community creation feature for readers and authors to enhance engagement.
+- **Intelligent Book Searching**: Integrate an OpenAI API chatbot for intelligent book searching and an improved user experience.
 
-6. **Intelligent Book Searching:** Integrated an OpenAI API chatbot for intelligent book searching and improved user experience.
+- **User History Tracking**: Implement a feature that tracks user history and interactions to generate more personalized text.
+
+- **Advanced Text Generation**: Create a context-aware text generation tool that generates coherent and contextually relevant responses by leveraging previous interactions.
+
+- **Authentication**: Ensure secure access using Spring Security with JWT tokens.
 
 ## Technologies Used
 
