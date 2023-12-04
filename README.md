@@ -1,6 +1,6 @@
 # BOOKHUBX - Your Book Discovery Platform
 
-BOOKHUBX is your go-to platform for effortless book discovery and community engagement. Dive into a diverse bookstore, connect with authors, and download your favorite books. Authors publish with ease, and our smart OpenAI chatbot makes finding books a breeze.
+BookHubX is your all-in-one destination for seamless book discovery and community engagement. Dive into a rich bookstore, explore diverse genres, and connect with authors. Our platform empowers authors to publish effortlessly while readers download and discuss their favorite books. With an intelligent OpenAI API chatbot, finding books becomes a breeze. BookHubX: Where books come to life.
 
 ## Table of Contents
 
