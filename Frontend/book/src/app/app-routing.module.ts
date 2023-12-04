@@ -25,7 +25,7 @@ const routes: Routes = [
 {path: 'author',component:AuthorDashboardComponent ,children: [
   {path:'',redirectTo:'author',pathMatch:'full'},
   {path:'books',component:BooksComponent},
-  {path:'',component:AuthorProfileComponent},
+  {path:'',component:BooksComponent},
   {path: 'uploadbooks',component:UploadBooksComponent},
   {path:'authorprofile',component:AuthorProfileComponent},
   {path:'authorsetting',component:AuthorSettingComponent},

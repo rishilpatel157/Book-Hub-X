@@ -27,6 +27,8 @@ public interface BookService {
 	List<Books> getPublishedBook();
 
 	Page<Books> getPagedItems(Pageable pageable);
+	Page<Books> getAuthorPagedItems(Pageable pageable);
+
 
 	BookPDF getPdfFile(Long id) throws Exception;
 	

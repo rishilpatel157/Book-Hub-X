@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ChatbotService } from '../service/chatbot.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
+
 
 @Component({
   selector: 'app-chatbot',
@@ -6,35 +10,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./chatbot.component.css']
 })
 export class ChatbotComponent {
-   userMessage: string = '';
-      chatMessages: any[] = [];
-  
-      sendMessage() {
-          const trimmedMessage = this.userMessage.trim();
-          if (trimmedMessage !== '') {
-              this.addUserMessage(trimmedMessage);
-              this.respondToUser(trimmedMessage);
-              this.userMessage = '';
-          }
-      }
-  
-      addUserMessage(content: string) {
-          this.chatMessages.push({ content, isSentByUser: true });
-      }
-  
-      addBotMessage(content: string) {
-          this.chatMessages.push({ content, isSentByUser: false });
-      }
-  
-      respondToUser(userMessage: string) {
-          // Replace this with your chatbot logic
-          setTimeout(() => {
-              this.addBotMessage('This is a response from the chatbot.');
-          }, 500);
-      }
-  
-      toggleChatbox() {
-          // Add logic to toggle the chatbox visibility
-      }
+  isChatboxOpen: boolean = false;
+  userMessage: string = '';
+  messages: { text: string, fromUser: boolean }[] = [];
+
+  constructor(private chatBotService :ChatbotService,private sanitizer: DomSanitizer){ }
+
+  toggleChatbox() {
+    
+    this.isChatboxOpen = !this.isChatboxOpen;
+  }
+
+  onTyping() {
+    
+  }
+
+  sendMessage() {
+    
+    const message = { text: this.userMessage, fromUser: true };
+    this.messages.push(message);
+    
+    this.userMessage = '';
+    
+    this.chatBotService.userPrompt(message.text).subscribe(res =>{
+      console.log(res)
+      const response = { text: res, fromUser: false };
+      
+      console.log(response)
+      this.messages.push(response);
+    })
+
+  }
+
   
 }

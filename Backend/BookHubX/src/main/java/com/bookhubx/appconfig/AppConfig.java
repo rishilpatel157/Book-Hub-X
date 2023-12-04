@@ -63,7 +63,7 @@ public class AppConfig {
 		}).authorizeHttpRequests(auth -> {
 			auth.requestMatchers(HttpMethod.POST,"/users","/upload/**").permitAll()
 //			.requestMatchers(HttpMethod.GET,"/community/paged","/community/**").permitAll()
-			.requestMatchers(HttpMethod.GET,"/publishedbooks","/paged","/book/**","/book/{id}","/downloadpdf/**","/communitylist").permitAll()
+			.requestMatchers(HttpMethod.GET,"/publishedbooks","/paged","authorbookspaged","/book/**","/book/{id}","/downloadpdf/**","/communitylist").permitAll()
 			.requestMatchers(HttpMethod.POST,"/author/**").permitAll()
 			.requestMatchers(HttpMethod.PATCH,"/author/**").permitAll()
 				   	.anyRequest().authenticated();

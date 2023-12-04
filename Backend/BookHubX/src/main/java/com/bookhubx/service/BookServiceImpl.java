@@ -159,4 +159,23 @@ public class BookServiceImpl implements BookService {
 		return bookRepository.findAll();
 	}
 
+	@Override
+	public Page<Books> getAuthorPagedItems(Pageable pageable) {
+
+		List<Books> allBooks = bookRepository.findAll();
+		String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Users user = usersRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("Invalid Email"));
+
+System.out.println(user);
+		List<Books> filteredBooks = allBooks.stream().filter( book -> book.getAuthor().getId() == user.getId()).collect(Collectors.toList());
+System.out.println(filteredBooks);
+		int start = (int) pageable.getOffset();
+		int end = (start + pageable.getPageSize()) > filteredBooks.size() ? filteredBooks.size()
+				: (start + pageable.getPageSize());
+
+		return new PageImpl<>(filteredBooks.subList(start, end),
+				PageRequest.of(pageable.getPageNumber(), pageable.getPageSize()), filteredBooks.size());
+	
+	}
+
 }

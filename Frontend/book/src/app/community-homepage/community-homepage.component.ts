@@ -12,6 +12,8 @@ import { CreateCommunityComponent } from '../dialog/create-community/create-comm
 import { CommunityService } from '../service/community.service';
 import { UserService } from '../service/user.service';
 import {  Router } from '@angular/router';
+import { DialogElementsExampleDialogComponent } from '../dialog-elements-example-dialog/dialog-elements-example-dialog.component';
+
 
 @Component({
   selector: 'app-community-homepage',
@@ -22,6 +24,7 @@ export class CommunityHomepageComponent implements OnInit {
   title!: string;
   bookId!: string;
   community: any[] = [];
+  
 
   role: string[] = [];
   roles: string[] = [];
@@ -42,48 +45,45 @@ export class CommunityHomepageComponent implements OnInit {
     public dialog: MatDialog,
     private communityService: CommunityService,
     private userService: UserService,
-    private route :Router
+    private route :Router,
+    
   ) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(CreateCommunityComponent, {
-      data: { title: this.title, bookId: this.bookId },
-    });
+    if(this.userService.isLoggedIn()){
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-
-      this.communityService
+      const dialogRef = this.dialog.open(CreateCommunityComponent, {
+        data: { title: this.title, bookId: this.bookId },
+      });
+      
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+        
+        this.communityService
         .createCommunity(result.title, result.bookId)
         .subscribe((res) => {
           alert(res);
           console.log(res);
-          // for(let i = 0;i<res.length;i++)
-          // {
-          //   for(let j = 0;j<res[i].members.length;j++)
-          //   {
-          //     console.log(this.user.id,res[i].members[j].id)
-          //     if(this.user.id == res[i].members[j].id)
-          //     {
-
-          //       this.member = true;
-          //       break;
-          //     }
-          //   }
-          // }
-
+          
           window.location.reload();
         });
-    });
-  }
+      });
+    }
+    else
+    {
+      this.dialog.open(DialogElementsExampleDialogComponent)
 
-  ngOnInit(): void {
+    }
+  
+    }
+    
+    ngOnInit(): void {
     this.userService.getUser().subscribe((res) => {
       this.user = res;
     });
     this.loadItems();
   }
-
+  
   loadItems(): void {
     this.communityService
       .getPagedItems(this.currentPage, this.pageSize)
@@ -125,6 +125,7 @@ export class CommunityHomepageComponent implements OnInit {
   }
 
   joinCommunity(id: number) {
+
     this.communityService.joinCommunity(id).subscribe((res) => {
       console.log(res);
       this.route.navigate(['/discussion',id])

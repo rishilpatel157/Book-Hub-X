@@ -73,7 +73,7 @@ export class RegisterComponent {
 
     if (
       this.getPasswordStrength(this.userProfile.password) > 4 &&
-      this.userProfile.firstName.length > 4 &&
+      this.userProfile.firstName.length > 2 &&
       this.getEmailValidity(this.userProfile.email) &&
       this.userProfile.password == this.confirmPassword
     ) {
@@ -142,6 +142,10 @@ export class RegisterComponent {
       //
       //
       //
+    }
+    else
+    {
+      alert("try again")
     }
   }
 

@@ -12,11 +12,15 @@ export class BooksComponent {
   books!: any[];
   profilePictureData: ArrayBuffer | null = null;
   profilePictureBase64: string | null = null;
+  
+currentPage = 0;
+pageSize = 10;
+totalPages = 0;
+pages: number[] = [];
+
 
   constructor(private bookService: BookService) {
-    this.bookService.getAuthorBooks().subscribe((res) => {
-      this.books = res;
-    });
+  this.loadItems();
   }
 
   publishBook(id: number) {
@@ -55,5 +59,25 @@ export class BooksComponent {
     window.location.reload()
 
 
+  }
+
+  loadItems(): void {
+    this.bookService.getAuthorPagedItems(this.currentPage, this.pageSize).subscribe((page) => {
+      this.books = page.content;
+      console.log(this.books)
+      this.totalPages = page.totalPages;
+      this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+      
+      // Log the data after the asynchronous call is complete
+    });
+  }
+  
+  onPageChange(newPage: number): void {
+    // Adjust the condition based on your indexing
+    
+    if (newPage >= 1 && newPage-1 < this.totalPages) {
+      this.currentPage = newPage;
+      this.loadItems();
+    }
   }
 }

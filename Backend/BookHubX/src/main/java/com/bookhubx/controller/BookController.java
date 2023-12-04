@@ -126,6 +126,21 @@ public class BookController {
 		Page<Books> items = bookService.getPagedItems(PageRequest.of(page, size));
 		return ResponseEntity.ok(items);
 	}
+	
+	@GetMapping("/authorbookspaged")
+	public ResponseEntity<Page<Books>> getAuthorPagedItems(@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "5") int size) {
+
+		if (page < 0) {
+			page = 0;
+
+		} else if (page > 0) {
+			page = page - 1;
+		}
+		Page<Books> items = bookService.getAuthorPagedItems(PageRequest.of(page, size));
+		return ResponseEntity.ok(items);
+	}
+
 
 	@GetMapping("/book/{id}")
 	ResponseEntity<Books> getBookById(@PathVariable Long id) {

@@ -114,6 +114,17 @@ export class BookService {
     return this.http.get<Page<any>>(`${this.url}/paged`, { params });
   }
 
+  getAuthorPagedItems(page: number, size: number): Observable<Page<any>> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+    return this.http.get<Page<any>>(`${this.url}/authorbookspaged`, {headers, params });
+  }
+
   getBookById(id: number): Observable<any> {
     return this.http.get<any>(`${this.url}/book/${id}`);
   }
