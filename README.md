@@ -20,7 +20,7 @@ BookHubX is your all-in-one destination for seamless book discovery and communit
 
 BOOKHUBX is a dynamic platform developed to provide a seamless experience for book enthusiasts. Explore a rich bookstore, connect with authors, and enjoy a vibrant community of readers. With a user-friendly interface and advanced features, BOOKHUBX revolutionizes the way you discover and engage with books.
 
-![ER Diagram](https://drive.google.com/file/d/1TdK--TJexlh21BvfT5aJdw243eBq6mfH/view?usp=sharing)
+![ER Diagram](https://ibb.co/NtZtxs9)
 
 ## Features
 
