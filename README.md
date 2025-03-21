@@ -79,8 +79,60 @@ BOOKHUBX is a dynamic platform developed to provide a seamless experience for bo
 - Angular CLI
 - MySQL Database
 
+
 ### Installation Guide
 
-1. **Clone the repository.**
-   ```bash
-   git clone https://github.com/yourusername/bookhubx.git
+#### 1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/bookhubx.git
+cd bookhubx
+```
+
+#### 2. **Run Without Docker (Local Setup)**
+
+**Backend Setup:**  
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+**Frontend Setup:**  
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+### 🚀 **Run With Docker** (Recommended)
+
+#### **1. Install Docker & Docker Compose**
+Ensure Docker is installed on your system. If not, install it from [Docker's official website](https://www.docker.com/get-started/).
+
+#### **2. Start the Application with Docker Compose**
+From the root directory of the project:
+```bash
+docker-compose up --build
+```
+👉 This will:
+- Start a MySQL container
+- Build and start the backend (Spring Boot)
+- Build and start the frontend (Angular with Nginx)
+
+#### **3. Access the Application**
+- **Frontend:** Open [http://localhost:3000](http://localhost:3000)
+- **Backend API:** Open [http://localhost:8080](http://localhost:8080)
+
+#### **4. Stop Containers**
+To stop the running containers, press `Ctrl + C` or run:
+```bash
+docker-compose down
+```
+
+#### **5. View Logs**
+- **Frontend logs:** `docker logs bookhubx_frontend`
+- **Backend logs:** `docker logs bookhubx_backend`
+- **Database logs:** `docker logs mysql_db`
+
+---
